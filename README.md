@@ -190,14 +190,7 @@ per call would turn a couple of minutes into close to an hour.
   affected is printed when the panel loads.
 - **The 50+ figures come from two separately fitted models (50-69 and 70+) added together.** The
   point estimates add exactly, because each model is scaled by its own population (`pop_50_69`,
-  `pop_70_plus`), so the two are counts of deaths among different people. The variances are also
-  added, which assumes the two fits are uncorrelated; they share municipalities, weather and
-  clusters, so the true covariance is not zero and is most likely positive, making these intervals
-  slightly too narrow. `07` quantifies that without changing the reported numbers: `se_worst_case`
-  is the widest interval any correlation can produce (`SE_50-69 + SE_70+`, i.e. rho = 1) and
-  `rho_critical` is the correlation at which the interval would just touch zero. **`rho_critical >
-  1` means no correlation whatsoever can put zero inside the interval**, so the assumption cannot
-  have affected that conclusion.
+  `pop_70_plus`), so the two are counts of deaths among different people.
 - **Lags are built by date, not by row position.** `add_lags()` sorts by municipality and date,
   splits each municipality into contiguous segments and lags within them, so a break in the series
   — a municipality created mid-period, a year with no population estimate — can never make
